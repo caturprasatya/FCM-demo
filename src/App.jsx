@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [count, setCount] = useState(0);
   const [promoData, setPromoData] = useState([]);
-  const { VITE_APP_VAPID_KEY } = import.meta.env;
+  const { VITE_APP_VAPID_KEY, TOKEN_KEY } = import.meta.env;
 
   // API Call Function
   const fetchPromoData = async () => {
@@ -23,7 +23,7 @@ function App() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyfQ.Lw_mI3534GtjxzIdK9diH1-sbjfZAdQy8fqfXH0cL0I", // Replace with your token if needed
+            `Bearer ${TOKEN_KEY}`, // Replace with your token if needed
         },
         // withCredentials: true, // Include credentials if required
         // credentials: "include", // Include credentials (cookies or auth headers)
